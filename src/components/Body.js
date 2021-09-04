@@ -1,17 +1,18 @@
 import React from 'react';
 
-import PlayersList from './PlayersList';
+import ActivitiesList from './ActivitiesList';
 
 const Body = (props) => {
+
     return (
         <div className="container">
-            <h3>{props.sport} Players</h3>
-            <PlayersList
-                players={props.players}
-                handleShowPlayer={props.handleShowPlayer}
-                handleAddPlayer={props.handleAddPlayer}
-                handleDeletePlayers={props.handleDeletePlayers}
-                handleDeletePlayer={props.handleDeletePlayer}
+            <h3>{props.activity} Activities</h3>
+            <ActivitiesList
+                activities={props.activities}
+                handleShowActivity={props.handleShowActivity}
+                handleAddActivity={props.handleAddActivity}
+                handleDeleteActivities={props.handleDeleteActivities}
+                handleDeleteActivity={props.handleDeleteActivity}
             />
         </div>
     );

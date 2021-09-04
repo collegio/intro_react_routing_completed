@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewFreeAgentForm extends React.Component {
+class NewActivityForm extends React.Component {
     constructor(props) {
         super(props);
         this.formDidSubmit = this.formDidSubmit.bind(this);
@@ -16,12 +16,11 @@ class NewFreeAgentForm extends React.Component {
     formDidSubmit(e) {
         e.preventDefault();
 
-        const player = {
+        const activity = {
             name: e.target.elements.yourName.value.trim(),
-            gender: e.target.elements.yourGender.value.trim(),
-            message: e.target.elements.yourMessage.value.trim()
+            distance: e.target.elements.yourDistance.value.trim()
         };
-        const error = this.props.handleAddPlayer(player);
+        const error = this.props.handleAddActivity(activity);
 
         // update the state
         this.setState(() => {
@@ -30,15 +29,14 @@ class NewFreeAgentForm extends React.Component {
 
         if (!error) {
             e.target.elements.yourName.value = '';
-            e.target.elements.yourGender.value = 'Male';
-            e.target.elements.yourMessage.value = '';
+            e.target.elements.yourDistance.value = '';
         }
     }
 
     render() {
         return (
-            <div className="new-free-agent-form">
-                <h3>Add a New Free Agent</h3>
+            <div className="new-activity-form">
+                <h3>Add a New Activity</h3>
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.formDidSubmit}>
                     <div className="form-group flex-form-group">
@@ -46,18 +44,11 @@ class NewFreeAgentForm extends React.Component {
                         <input type="text" name="yourName" />
                     </div>
                     <div className="form-group flex-form-group">
-                        <label>Gender: </label>
-                        <select name="yourGender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
+                        <label>Distance: </label>
+                        <input type="text" name="yourDistance" />
                     </div>
                     <div className="form-group">
-                        <p>Your Message: </p>
-                        <textarea className="item-block" name="yourMessage"></textarea>
-                    </div>
-                    <div className="form-group">
-                        <button className="button item-block">Submit Your Name</button>
+                        <button className="button item-block">Submit Activity</button>
                     </div>
                 </form>
             </div>
@@ -65,4 +56,4 @@ class NewFreeAgentForm extends React.Component {
     }
 }
 
-export default NewFreeAgentForm;
+export default NewActivityForm;

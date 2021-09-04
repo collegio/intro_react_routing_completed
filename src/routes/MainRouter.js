@@ -3,17 +3,19 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../components/Header';
 import AboutPage from '../components/AboutPage';
 import NotFoundPage from '../components/NotFoundPage';
-import BaseballTracker from '../components/BaseballTracker';
-import HockeyTracker from '../components/HockeyTracker';
+import WalkingTracker from '../components/WalkingTracker';
+import RunningTracker from '../components/RunningTracker';
+import CyclingTracker from '../components/CyclingTracker';
 
 const MainRouter = () => (
     <BrowserRouter>
         <div>
-            <Header>Free Agent Tracker</Header>
+            <Header>Activity Tracker</Header>
             <Switch>
-                <Route path="/" component={BaseballTracker} exact={true} />
-                <Route path="/hockey" component={HockeyTracker} exact={true} />
-                <Route path="/baseball" component={BaseballTracker} exact={true} />
+                <Route path="/" component={WalkingTracker} exact={true} />
+                <Route path="/running" component={RunningTracker} exact={true} />
+                <Route path="/cycling" component={CyclingTracker} exact={true} />
+                <Route path="/walking" component={WalkingTracker} exact={true} />
                 <Route path="/about" component={AboutPage} />
                 <Route component={NotFoundPage} />
             </Switch>
